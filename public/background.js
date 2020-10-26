@@ -4,16 +4,15 @@
 
 'use strict';
 
-chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({color: '#3aa757'}, function() {
-    console.log('The color is green.');
-  });
-  // chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
-  //   chrome.declarativeContent.onPageChanged.addRules([{
-  //     conditions: [new chrome.declarativeContent.PageStateMatcher({
-  //       pageUrl: {hostEquals: 'developer.chrome.com'},
-  //     })],
-  //     actions: [new chrome.declarativeContent.ShowPageAction()]
-  //   }]);
-  // });
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  if (changeInfo.status === 'complete') {
+    console.log(tabId, changeInfo, tab);
+    //code in here will run every time a user goes onto a new tab, so you can insert your scripts into every new tab
+    // inject content_script to current tab
+    chrome.tabs.executeScript(tabId, {
+      file: "client_script.js",
+      allFrames: false,
+    });
+  }
 });
+

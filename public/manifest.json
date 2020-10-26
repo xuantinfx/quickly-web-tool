@@ -1,15 +1,14 @@
 {
-  "name": "ReactJs with Google Extension boilerplate",
-  "version": "1.0",
-  "description": "ReactJs with Google Extension boilerplate example",
-  "permissions": ["activeTab", "declarativeContent", "storage"],
-  "options_page": "index.html",
+  "name": "Quickly web tools",
+  "version": "0.1",
+  "description": "Quickly web tools for Dao Xuan Tin",
+  "permissions": ["activeTab", "declarativeContent", "storage", "<all_urls>"],
   "browser_action": {
     "default_popup": "index.html"
   },
   "background": {
     "scripts": ["background.js"],
-    "persistent": false
+    "persistent": true
   },
   "content_security_policy": "script-src 'self' 'sha256-FEid8KRqAfmkqRNM4hJ3fs2WBl20DX8fCust3cv1Rpw='; object-src 'self'",
   "icons": {
