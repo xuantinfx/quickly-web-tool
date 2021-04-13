@@ -6,7 +6,11 @@ export const autoPlayAt15h30 = () => {
   vi = document.getElementsByTagName('video')[0];
   setTimeout(() => {
     vi.play();
-  }, new Date().setHours(15, 30, 0).valueOf() - new Date().valueOf());`;
+  }, new Date().setHours(15, 30, 0).valueOf() - new Date().valueOf());
+  setTimeout(() => {
+    vi.pause();
+  }, new Date().setHours(15, 37, 0).valueOf() - new Date().valueOf());
+  `;
   return sendMessageToTab(script);
 };
 
